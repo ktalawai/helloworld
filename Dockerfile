@@ -1,4 +1,4 @@
-# Use the official OpenJDK image as the base image
+# Use the official OpenJDK image as the base images
 FROM openjdk:20
 
 # Set the working directory inside the container
