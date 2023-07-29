@@ -33,6 +33,9 @@ jobs:
           push: false
           tags: kinitap/demo-hello-world:v1
 
+      - name: Run Docker Container
+        run: docker run -d --name demo-hello-world-v1 -p 8080:80 kinitap/demo-hello-world:v1
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
         with:
