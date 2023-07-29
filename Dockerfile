@@ -1,7 +1,14 @@
 # Use the official OpenJDK image as the base images
 FROM openjdk:20
 
-# Copy the Spring Boot application JAR file into the container
-COPY target/demo-0.0.1-SNAPSHOT.jar demo-0.0.1-SNAPSHOT.jar
+# Refer to Maven build -> finalName
+ARG JAR_FILE=target/demo-0.0.1-SNAPSHOT.jar
 
-ENTRYPOINT ["java","-jar","/demo-0.0.1-SNAPSHOT.jar"]
+# cd /opt/app
+WORKDIR /opt/app
+
+# cp target/spring-boot-web.jar /opt/app/app.jar
+COPY ${JAR_FILE} app.jar
+
+# java -jar /opt/app/app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
