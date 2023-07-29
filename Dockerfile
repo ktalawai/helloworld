@@ -4,11 +4,11 @@ FROM openjdk:20
 # Refer to Maven build -> finalName
 ARG JAR_FILE=target/demo-0.0.1-SNAPSHOT.jar
 
-# cd /opt/app
-WORKDIR /opt/app
+# cd /app
+WORKDIR /app
 
-# cp target/spring-boot-web.jar /opt/app/app.jar
-COPY ${JAR_FILE} /opt/app/app.jar
+# cp target/spring-boot-web.jar /app/app.jar
+COPY target/demo-0.0.1-SNAPSHOT.jar /app/demo-0.0.1-SNAPSHOT.jar
 
-# java -jar /opt/app/app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
+# java -jar /app/app.jar
+ENTRYPOINT ["java","-jar","demo-0.0.1-SNAPSHOT.jar"]
