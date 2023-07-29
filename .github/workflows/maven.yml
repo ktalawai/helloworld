@@ -33,7 +33,7 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}  # Replace with the desired image tag
         run: |
             docker buildx create --use
-            docker buildx build --platform linux/amd64 -t $IMAGE_NAME:$IMAGE_TAG --push .
+            docker buildx build --platform linux/amd64 -t $IMAGE_NAME:$IMAGE_TAG .
 
       - name: Show Docker Images
         run: docker images
