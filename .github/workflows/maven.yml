@@ -42,8 +42,5 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Pull Docker Image
-        run: docker pull kinitap/demo-hello-world:v1
-
       - name: Push Docker Image to Docker Hub
         run: docker push kinitap/demo-hello-world:v1
