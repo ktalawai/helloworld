@@ -33,6 +33,10 @@ jobs:
           push: false
           tags: kinitap/demo-hello-world:v2
 
+            # Pull the Docker image (if using a pre-built image)
+      - name: Pull Docker Image
+        run: docker pull kinitap/demo-hello-world:v2
+
       - name: Run Docker Container
         run: docker run -d --name demo-hello-world-v1 -p 8080:80 kinitap/demo-hello-world:v2
 
