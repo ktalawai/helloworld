@@ -33,8 +33,11 @@ jobs:
           push: false
           tags: kinitap/demo-hello-world:${{ github.sha }}
 
+      - name: Show Docker Images
+        run: docker images
+
       - name: Run Docker Container
-        run: docker run -d --name demo-hello-world-v2 -p 8080:80 kinitap/demo-hello-world:${{ github.sha }}
+        run: docker run -d --name demo-hello-world-v2 -p 8081:8081 kinitap/demo-hello-world:${{ github.sha }}
 
       - name: Show Docker Containers
         run: docker ps
