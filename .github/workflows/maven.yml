@@ -31,10 +31,10 @@ jobs:
         with:
           context: .
           push: false
-          tags: kinitap/demo-hello-world:v2
+          tags: kinitap/demo-hello-world:${{ github.sha }}
 
       - name: Run Docker Container
-        run: docker run -d --name demo-hello-world-v2 -p 8080:80 kinitap/demo-hello-world:v2
+        run: docker run -d --name demo-hello-world-v2 -p 8080:80 kinitap/demo-hello-world:${{ github.sha }}
 
       - name: Show Docker Containers
         run: docker ps
@@ -49,4 +49,4 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push Docker Image to Docker Hub
-        run: docker push kinitap/demo-hello-world:v2
+        run: docker push kinitap/demo-hello-world:${{ github.sha }}
