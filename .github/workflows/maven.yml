@@ -54,3 +54,17 @@ jobs:
       - name: Push Docker Image to Docker Hub
         run: docker push kinitap/demo-hello-world:${{ github.sha }}
 
+      - name: Install AWS CLI and kubectl
+        run: |
+          # Install AWS CLI
+          sudo apt-get update -q
+          sudo apt-get install -y -q unzip
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip -q awscliv2.zip
+          sudo ./aws/install
+          
+          # Install kubectl
+          sudo curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+          sudo chmod +x kubectl
+          sudo mv kubectl /usr/local/bin/
+
