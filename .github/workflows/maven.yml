@@ -38,3 +38,21 @@ jobs:
       - name: Show Docker Images
         run: docker images
 
+      - name: Run Docker Container
+        run: docker run -d --name demo-hello-world-v2 -p 8081:8081 kinitap/demo-hello-world:${{ github.sha }}
+
+      - name: Show Docker Containers
+        run: docker ps
+
+      - name: Stop Docker Container
+        run: docker stop demo-hello-world-v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Push Docker Image to Docker Hub
+        run: docker push kinitap/demo-hello-world:${{ github.sha }}
+
