@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: demo-hello-world-v2
-          image: kinitap/demo-hello-world:v1  # Replace with the Docker image name and tag
+          image: kinitap/demo-hello-world:${DOCKER_TAG}  # Replace with the Docker image name and tag
           ports:
             - containerPort: 8081  # Replace with the port your application listens on
