@@ -78,7 +78,10 @@ jobs:
         run: |
           aws eks --region ap-south-1 update-kubeconfig --name demo-eks-cluster
 
+      - name: List files in the current directory
+        run: ls -ltr
+
       - name: Deploy to EKS cluster
         run: |
             pwd
-            kubectl apply -f demo-deployment.yaml
+            kubectl apply -f ./demo-deployment.yaml
