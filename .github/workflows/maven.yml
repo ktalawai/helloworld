@@ -38,7 +38,7 @@ jobs:
 
       - name: Use envsubst to replace Docker tag in deployment YAML
         run: |
-          cat path/to/deployment.yaml | envsubst > demo-deployment.yml
+          cat demo-deployment.yml | envsubst > demo-deployment.yml
 
       - name: Show Docker Images
         run: docker images
