@@ -39,6 +39,7 @@ jobs:
       - name: Use envsubst to replace Docker tag in deployment YAML
         run: |
           cat demo-deployment.yml | envsubst > demo-deploymentttt.yml
+          
 
       - name: Debug demo-deployment.yml
         run: |
@@ -95,4 +96,4 @@ jobs:
       - name: Deploy to EKS cluster
         run: |
             pwd
-            kubectl apply -f ./demo-deployment.yml
+            kubectl apply -f ./demo-deploymentttt.yml
