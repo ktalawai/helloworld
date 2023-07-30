@@ -13,7 +13,7 @@ jobs:
       DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
       IMAGE_NAME: kinitap/demo-hello-world
-      IMAGE_TAG: ${{ github.sha }}
+      c: ${{ github.sha }}
 
     steps:
       - name: Checkout repository
@@ -38,7 +38,7 @@ jobs:
 
       - name: Use envsubst to replace Docker tag in deployment YAML
         run: |
-          cat path/to/deployment.yaml | envsubst > deployment_updated.yaml
+          cat path/to/deployment.yaml | envsubst > demo-deployment.yml
 
       - name: Show Docker Images
         run: docker images
