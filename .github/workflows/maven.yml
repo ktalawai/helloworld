@@ -33,6 +33,13 @@ jobs:
             # Build the Docker image inside a container
             docker build -t $IMAGE_NAME:$IMAGE_TAG .
 
+      - name: Set Docker tag as environment variable
+        run: echo "DOCKER_TAG=${{ github.sha }}" >> $GITHUB_ENV
+
+      - name: Use envsubst to replace Docker tag in deployment YAML
+        run: |
+          cat path/to/deployment.yaml | envsubst > deployment_updated.yaml
+
       - name: Show Docker Images
         run: docker images
 
