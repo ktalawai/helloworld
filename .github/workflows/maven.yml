@@ -40,6 +40,10 @@ jobs:
         run: |
           cat demo-deployment.yml | envsubst > demo-deployment.yml
 
+      - name: Debug demo-deployment.yml
+        run: |
+          cat demo-deployment.yml
+
       - name: Show Docker Images
         run: docker images
 
