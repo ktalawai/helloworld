@@ -93,7 +93,12 @@ jobs:
       - name: List files in the current directory
         run: ls -ltr
 
-      - name: Deploy to EKS cluster
+      - name: Deploy to Pod to EKS cluster
         run: |
             pwd
             kubectl apply -f ./demo-deploymentttt.yml
+
+      - name: Deploy to Service toEKS cluster
+        run: |
+          pwd
+          kubectl apply -f ./demo-service.yml
