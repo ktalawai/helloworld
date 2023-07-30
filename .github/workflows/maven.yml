@@ -74,6 +74,9 @@ jobs:
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws configure set region ap-south-1  # Replace with your AWS region
 
+      - name: Configure kubectl for EKS
+        run: |
+          aws eks --region ap-south-1 update-kubeconfig --name demo-eks-cluster
 
       - name: Deploy to EKS cluster
         run: |
