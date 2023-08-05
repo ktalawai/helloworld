@@ -97,8 +97,10 @@ jobs:
         run: |
             pwd
             kubectl apply -f ./demo-deploymentttt.yml
+            kubectl apply -f ./db-deployment.yml
 
       - name: Deploy to Service toEKS cluster
         run: |
           pwd
           kubectl apply -f ./demo-service.yml
+          kubectl apply -f ./db-service.yml
