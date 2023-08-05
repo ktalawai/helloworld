@@ -19,11 +19,11 @@ spec:
             - containerPort: 5432
           env:
             - name: POSTGRES_USER
-              value: root
-            - name: POSTGRES_PASSWORD
               value: postgres
+            - name: POSTGRES_PASSWORD
+              value: admin
             - name: POSTGRES_DB
-              value: demo-schema.video_cam
+              value: demo-db
           volumeMounts:
             - name: postgres-storage
               mountPath: /var/lib/postgresql/data
