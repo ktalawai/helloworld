@@ -17,3 +17,4 @@ spec:
                 name: demo-app-service
                 port:
                   number: 80
+  ingressClassName: nginx
