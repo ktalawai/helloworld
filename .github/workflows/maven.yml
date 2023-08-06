@@ -104,3 +104,8 @@ jobs:
           pwd
           kubectl apply -f ./demo-service.yml
           kubectl apply -f ./db-service.yml
+
+      - name: Deploy to Ingress toEKS cluster
+        run: |
+          pwd
+          kubectl apply -f ./demo-ingress.yml
