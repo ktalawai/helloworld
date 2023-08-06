@@ -109,3 +109,4 @@ jobs:
         run: |
           pwd
           kubectl apply -f ./demo-ingress.yml
+          kubectl apply -f ./demo-ingress-controller.yml
