@@ -1,4 +1,3 @@
-# demo-app-ingress.yaml testing
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -15,4 +14,11 @@ spec:
                 name: demo-app-service
                 port:
                   number: 80
+          - path: /postgres
+            pathType: Prefix
+            backend:
+              service:
+                name: postgres-service   # Replace with your PostgreSQL backend Service name
+                port:
+                  number: 5432   # Replace with the appropriate port
   ingressClassName: nginx
