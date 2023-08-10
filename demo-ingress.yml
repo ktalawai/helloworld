@@ -5,7 +5,7 @@ metadata:
   name: demo-app-ingress
 spec:
   rules:
-    - host: kinitap.com   # Replace this with your actual domain or IP
+    - host: demo.kinitap.com   # Replace this with your actual domain or IP
       http:
         paths:
           - path: /
