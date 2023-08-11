@@ -7,13 +7,6 @@ spec:
     - host: demo.kinitap.com   # Replace this with your actual domain or IP
       http:
         paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: demo-app-service
-                port:
-                  number: 80
           - path: /postgres
             pathType: Prefix
             backend:
@@ -21,4 +14,3 @@ spec:
                 name: postgres-service   # Replace with your PostgreSQL backend Service name
                 port:
                   number: 5432   # Replace with the appropriate port
-  ingressClassName: nginx
