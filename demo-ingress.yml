@@ -2,12 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: demo-app-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
     - host: demo.kinitap.com   # Replace this with your actual domain or IP
       http:
         paths:
-          - path: /postgres
+          - path: /
             pathType: Prefix
             backend:
               service:
